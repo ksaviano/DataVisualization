@@ -1,0 +1,42 @@
+/* home.html */
+
+#headerDiv {
+	float: left;
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	right: 5px;
+	width: 90%;
+	border: #734d99 solid 1px;
+}
+
+#mainDiv {
+	clear: both;
+	float: left;
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: 70%;
+	border: #734d99 solid 1px;
+}
+
+#menuDiv {
+	float: left;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	width: 20%;
+	border: #734d99 solid 1px;
+}
+
+#footerDiv {
+	clear: both;
+	float: left;
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	right: 5px;
+	width: 90%;
+	border: #734d99 solid 1px;
+	
+}
