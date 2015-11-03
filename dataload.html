@@ -1,11 +1,34 @@
 
 <body>
 	<div id="dataloadDiv">
+		<div class="clearfix" id="inputs">
+ 			<input type="file" multiple="" name="files[]" id="files">
+		</div>
+		<hr>
+		<div id="dispfilenameLbl" class="label">Filename: <div id="dispfilename" class="response"></div></div>
+		<div id="dispfiletypeLbl" class="label">File Type: <div id="dispfiletype" class="response"></div></div>
+		<div id="dispfilesizeLbl" class="label">File Size (in KB): <div id="dispfilesize" class="response"></div></div>
+		<div id="displastmodLbl" class="label">Date Last Modified: <div id="displastmod" class="response"></div></div>
+		<hr>
+		<table id="contents" border="1"></table>
+	</div>
+</body>
+	
+	
+	
+	<!--<div id="dataloadDiv">
 		<div id="selectLbl" class="inputLbl">Select .csv to Load</div>
 		<input id="selectBox" class="input" name="input" type="file"></input>
 		<div id="selectBtn" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only bodyBtn">Upload</div>
 		<div id="selectHelpBtn" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only bodyBtn">Help</div>
+	
+	
+	<div id="resultsDiv">
+		<div id="metaDiv">
+			<output id="list"></output>
+		</div>
 	</div>
+			
 		<div id="selectHelpDiv" class="helper text">
 			The .csv file uploaded expects normalized data with the following fields/columns (order is critical):<br>
 			&bull;  Member First Associated Date<br>
@@ -19,3 +42,5 @@
 			&bull;  Contact Type (No Contact, Open, Same Diagnonis)<br>
 			&bull;  Radius (amount of travel in miles)<br>
 		</div>
+	</div>
+		-->
