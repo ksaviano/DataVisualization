@@ -1,8 +1,12 @@
 <body>
 	<div id="bargraphsDiv">
 		<style>
+			
+			h3 {
+				text-align: center;
+			}
 			.bar {
-				fill: steelblue;
+				fill: #393b79;
 			}
 			
 			.bar:hover {
@@ -24,6 +28,35 @@
 			
 			.x.axis path {
 				display: none;
+			}
+			
+			#chart {
+				height: 400px;
+				position: relative;
+				width: 600px;
+			}
+			
+			.tooltip {
+				background: #eee;
+				box-shadow: 0 0 5px #999999;
+				color: #333;
+				display: none;
+				font-size: 12px;
+				left: 130px;
+				padding: 10px;
+				position: relative;
+				text-align: center;
+				top: 5px;
+				width: 80px;
+				z-index: 10;
+			}
+			
+			.legend {
+				font-size: 12px;
+			}
+			
+			rect {
+				stroke-width: 2;
 			}
 		</style>
 		<div id="bargraphfieldsDiv"></div>

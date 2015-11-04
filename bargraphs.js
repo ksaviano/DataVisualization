@@ -49,14 +49,16 @@ function drawbarchart(dataset, title) {
 	var chartDiv = $("#chart")
 	chartDiv.empty();
 	
-	chartDiv.append("<h1 id='barTitle'></div>");
+	chartDiv.append("<h3 id='barTitle'></h3>");
 	$("#barTitle").html(title);
 	
 	chartDiv.append("<svg class='chart'></svg>");
-	
+		
 	var margin = { top: 20, right: 20, bottom: 30, left: 40 },
 		width = 600 - margin.left - margin.right,
 		height = 400 - margin.top - margin.bottom;
+	
+	var formatPercent = d3.format(".0%");
 		
 	var x = d3.scale.ordinal()
 		.rangeRoundBands([0, width], .2)
@@ -74,6 +76,13 @@ function drawbarchart(dataset, title) {
 		.scale(y)
 		.orient("left")
 		.ticks(10, "");
+		
+	var tip = d3.tip()
+		.attr('class', 'd3-tip')
+		.offset([-10, 0])
+		.html(function (d) {
+			return "Total: <span>" + d.count +"</span>";
+		});
 				
 	var chart = d3.select(".chart")
 		.attr("width", width + margin.left + margin.right)
@@ -81,6 +90,8 @@ function drawbarchart(dataset, title) {
 		.append("g")
 			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+	chart.call(tip);
+	
 	chart.append("g")
 		.attr("class", "x axis")
 		.attr("transform", "translate(0," + height + ")")
@@ -103,7 +114,14 @@ function drawbarchart(dataset, title) {
 			.attr("y", function(d) { return y(d.count); })
 			.attr("width", x.rangeBand())
 			.attr("x", function(d) { return x(d.label); })
-			.attr("height", function(d) { return height - y(d.count); });
+			.attr("height", function(d) { return height - y(d.count); })
+			.on('mouseover', tip.show)
+			.on('mouseout', tip.hide);
+			
+//	TRYING TO ADD TOOLTIP AND LEGEND TO BAR GRAPHS
+
+	
+
 }
 
 

@@ -20,7 +20,7 @@ function readyPiechartsDiv() {
 	}
 	
 	$("#field1").click(function(evt) {
-		drawpiechart(populateByString(1), "Members First Associated with Group (by Year)");
+		drawdonutchart(populateByString(1), "Members First Associated with Group (by Year)");
 	});
 	
 	$("#field5").click(function(evt) {
