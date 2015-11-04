@@ -108,6 +108,7 @@ console.log("New Account Button clicked.")
 		$("#unBox").val("ksaviano")
 		$("#pwBox").val("password");
 		$("#loginBtn").click();
+		
 	}
 	
 	fortesting();
