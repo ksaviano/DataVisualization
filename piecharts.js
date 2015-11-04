@@ -20,7 +20,7 @@ function readyPiechartsDiv() {
 	}
 	
 	$("#field1").click(function(evt) {
-		drawdonutchart(populateByString(1), "Members First Associated with Group (by Year)");
+		drawpiechart(populateByString(1), "Members First Associated with Group (by Year)");
 	});
 	
 	$("#field5").click(function(evt) {
@@ -46,50 +46,50 @@ function readyPiechartsDiv() {
 }
 
 
-function populateByString(x) {
-	var hashmap = [];
-	var y;
-	for(var i = 0; i < members.length; i++) {
-		switch(x) {
-			case 1:
-				y = members[i].startDate.getFullYear();
-				break;
-			case 5:
-				y = members[i].country;
-				break;
-			case 6:
-				y = members[i].campaign;
-				break;
-			case 7: 
-				y = members[i].gender;
-				break;
-			case 8:
-				y = members[i].condition;
-				break;
-			case 9:
-				y = members[i].contact;
-				break;
-			default:
-				console.log("Something has gone horribly wrong in populateByString(x)");
-		}
-			if(hashmap.length == 0) { hashmap.push( { label: y, count: 1, enabled: true }); } 
-			else {
-				for(var k = 0; k < hashmap.length; k++) {			//	k = step through items in hashmap
-					if(hashmap[k].label == y) {
-						hashmap[k].count += 1;
-						break;
-					} else {
-						if(k == hashmap.length-1) {
-							hashmap.push( { label: y, count: 1, enabled: true });		
-						} else {
-						continue;
-						}
-					}
-				} // end k
-			}
-	}
-	return hashmap;
-}
+// function populateByString(x) {
+// 	var hashmap = [];
+// 	var y;
+// 	for(var i = 0; i < members.length; i++) {
+// 		switch(x) {
+// 			case 1:
+// 				y = members[i].startDate.getFullYear();
+// 				break;
+// 			case 5:
+// 				y = members[i].country;
+// 				break;
+// 			case 6:
+// 				y = members[i].campaign;
+// 				break;
+// 			case 7: 
+// 				y = members[i].gender;
+// 				break;
+// 			case 8:
+// 				y = members[i].condition;
+// 				break;
+// 			case 9:
+// 				y = members[i].contact;
+// 				break;
+// 			default:
+// 				console.log("Something has gone horribly wrong in populateByString(x)");
+// 		}
+// 			if(hashmap.length == 0) { hashmap.push( { label: y, count: 1, enabled: true }); } 
+// 			else {
+// 				for(var k = 0; k < hashmap.length; k++) {			//	k = step through items in hashmap
+// 					if(hashmap[k].label == y) {
+// 						hashmap[k].count += 1;
+// 						break;
+// 					} else {
+// 						if(k == hashmap.length-1) {
+// 							hashmap.push( { label: y, count: 1, enabled: true });		
+// 						} else {
+// 						continue;
+// 						}
+// 					}
+// 				} // end k
+// 			}
+// 	}
+// 	return hashmap;
+// }
 
 // function populateByString(x) {
 // 	var hashmap = [];
@@ -114,6 +114,11 @@ function populateByString(x) {
 
 
 function drawdonutchart(dataset, title) {
+	$("#chart").empty();
+	
+	$("#chart").append("<h1 id='pieTitle'></div>");
+	$("#pieTitle").html(title);
+	
 	var width = 360;
 	var height = 360;
 	var radius = Math.min(width, height) / 2;
@@ -121,10 +126,6 @@ function drawdonutchart(dataset, title) {
 	var legendRectSize = 18;
 	var legendSpacing = 4;
 	
-	$("#chart").empty();
-	
-	$("#chart").append("<h1 id='pieTitle'></div>");
-	$("#pieTitle").html(title);
 		
 	var color = d3.scale.category20b();
 	
@@ -286,13 +287,4 @@ function drawdonutchart(dataset, title) {
 // 			return color(d.data.label);
 // 		});
 // };
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	

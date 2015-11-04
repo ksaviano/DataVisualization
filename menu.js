@@ -8,7 +8,9 @@ function readyMenuDiv() {
 	});
 	
 	$("#bargraphsBtn").click(function(evt) {
-		
+		$("#mainDiv").load("bargraphs.html #bargraphsDiv", function() {
+			readyBargraphsDiv();
+		});
 	});
 	
 	$("#choroplethBtn").click(function(evt) {

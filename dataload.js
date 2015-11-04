@@ -98,3 +98,48 @@ function loadMemberArray(file) {
 		console.log("dataload.js selectHtlpBtn (Help) clicked.");
 		$("#selectHelpDiv").toggle();
 	});	
+	
+	function populateByString(x) {
+	var hashmap = [];
+	var y;
+	for(var i = 0; i < members.length; i++) {
+		switch(x) {
+			case 1:
+				y = members[i].startDate.getFullYear();
+				break;
+			case 5:
+				y = members[i].country;
+				break;
+			case 6:
+				y = members[i].campaign;
+				break;
+			case 7: 
+				y = members[i].gender;
+				break;
+			case 8:
+				y = members[i].condition;
+				break;
+			case 9:
+				y = members[i].contact;
+				break;
+			default:
+				console.log("Something has gone horribly wrong in populateByString(x)");
+		}
+			if(hashmap.length == 0) { hashmap.push( { label: y, count: 1, enabled: true }); } 
+			else {
+				for(var k = 0; k < hashmap.length; k++) {			//	k = step through items in hashmap
+					if(hashmap[k].label == y) {
+						hashmap[k].count += 1;
+						break;
+					} else {
+						if(k == hashmap.length-1) {
+							hashmap.push( { label: y, count: 1, enabled: true });		
+						} else {
+						continue;
+						}
+					}
+				} // end k
+			}
+	}
+	return hashmap;
+}
